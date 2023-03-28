@@ -1,6 +1,4 @@
-function Solution(num1, num2) {
-  return num1 - num2;
-}
+const solution = (num1, num2) => num1 - num2;
 
-console.log(Solution(2, 3));
-console.log(Solution(100, 2));
+console.log(solution(2, 3));
+console.log(solution(100, 2));
