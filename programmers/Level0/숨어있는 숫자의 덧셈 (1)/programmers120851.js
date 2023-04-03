@@ -1,16 +1,26 @@
-// isNaN() 사용
-const solution1 = (my_string) =>
-  [...my_string].reduce(
-    (acc, cur) => (isNaN(cur) ? acc : acc + Number(cur)),
-    0
-  );
+const solution1 = (n) =>
+  Array.from(n.toString()).reduce((acc, cur) => acc + +cur, 0);
 
-// 정규표현식 및 단항 연산자 사용
-const solution2 = (my_string) =>
-  Array.from(my_string.replace(/[^0-9]/g, "")).reduce(
-    (acc, cur) => acc + +cur,
-    0
-  );
+// map으로 형변환
+const solution2 = (n) => {
+  (n + "")
+    .split("")
+    .map((el) => +el)
+    .reduce((acc, cur) => acc + cur, 0);
+};
 
-console.log(solution1("aAb1B2cC34oOp"));
-console.log(solution1("1a2b3c4d123"));
+// while 문 사용
+function solution3(n) {
+  let sum = 0;
+
+  while (n > 0) {
+    sum += n % 10;
+
+    n = Math.floor(n / 10);
+  }
+
+  return sum;
+}
+
+console.log(solution1(1234));
+console.log(solution1(930211));
